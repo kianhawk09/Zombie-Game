@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cs3jof5ff2pkn"]
+
+[ext_resource type="Script" uid="uid://dh5w5oattyt48" path="res://scripts/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cksyjepw233yv" path="res://scenes/level_root.tscn" id="2_0wfyh"]
+
+[node name="Main" type="Node2D" unique_id=1892450596]
+script = ExtResource("1_0wfyh")
+
+[node name="LevelRoot" parent="." unique_id=2016489478 instance=ExtResource("2_0wfyh")]
+position = Vector2(-1, 4)
