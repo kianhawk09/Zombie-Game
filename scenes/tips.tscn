@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://iqeie861egsa"]
+
+[ext_resource type="Script" uid="uid://ck22l2ri50pog" path="res://scenes/tips.gd" id="1_fnuhh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ghpp"]
+size = Vector2(234, 318)
+
+[node name="Tip" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(116, 158)
+shape = SubResource("RectangleShape2D_6ghpp")
+script = ExtResource("1_fnuhh")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_right = 100.0
+offset_bottom = 36.0
+text = "Use SPACE, W, or UP to jump!"
+
+[connection signal="body_entered" from="." to="CollisionShape2D" method="_on_tip_body_entered"]

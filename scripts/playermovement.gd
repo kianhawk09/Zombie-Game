@@ -44,3 +44,7 @@ func die() -> void:
 	alive = false
 	animated_sprite_2d.animation = "die"
 	animated_sprite_2d.get_node_or_null("Hurt").play()
+
+
+func _on_tip_area_1_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

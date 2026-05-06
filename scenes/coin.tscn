@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://0ng22dqw4xid"]
+[gd_scene load_steps=18 format=3 uid="uid://0ng22dqw4xid"]
 
 [ext_resource type="Texture2D" uid="uid://dx51kh4bnu30c" path="res://assets/sprites/coin.png" id="1_rwqht"]
 [ext_resource type="Script" uid="uid://b6shjoxvgw7gv" path="res://scripts/coin.gd" id="2_i64fm"]
@@ -99,17 +99,17 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ls27i"]
 radius = 5.0
 
-[node name="Coin" type="Area2D" unique_id=713890194]
+[node name="Coin" type="Area2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2030742938]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_rojmm")
 autoplay = "default"
 
-[node name="Coin" type="AudioStreamPlayer" parent="AnimatedSprite2D" unique_id=692369500]
+[node name="Coin" type="AudioStreamPlayer" parent="AnimatedSprite2D"]
 stream = ExtResource("3_11l1o")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=86524038]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ls27i")
 script = ExtResource("2_i64fm")
 

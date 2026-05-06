@@ -1,17 +1,25 @@
 [gd_scene load_steps=7 format=3 uid="uid://dmarpdatiwhv4"]
 
 [ext_resource type="Script" uid="uid://ly2m4its6mls" path="res://scripts/main_menu.gd" id="1_bqqt6"]
-[ext_resource type="Texture2D" uid="uid://bpvrxsm4nf8ft" path="res://assets/sprites/fruit.png" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://demgyfj718boh" path="res://assets/sprites/bg1.png" id="2_bqqt6"]
 [ext_resource type="FontFile" uid="uid://msbittob3x64" path="res://assets/fonts/vhs-gothic.ttf" id="2_ekxnf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
-texture = ExtResource("1_l6cm7")
+texture = ExtResource("2_bqqt6")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
-bg_color = Color(0.1807017, 0.18849081, 0.19510946, 1)
+bg_color = Color(1, 1, 1, 0.3882353)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
-bg_color = Color(0.18717611, 0.18717617, 0.18717602, 1)
+bg_color = Color(1, 1, 1, 0.34117648)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -38,15 +46,16 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 128.0
-offset_top = -57.0
+offset_top = -113.0
 offset_right = 452.0
-offset_bottom = 121.0
+offset_bottom = 65.0
 grow_vertical = 2
 theme_override_constants/separation = 59
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.10747949, 0.10747983, 0.107479595, 1)
 theme_override_fonts/font = ExtResource("2_ekxnf")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
@@ -55,6 +64,7 @@ text = "Start Game"
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.09239689, 0.09239713, 0.09239692, 1)
 theme_override_fonts/font = ExtResource("2_ekxnf")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
@@ -65,9 +75,9 @@ text = "Quit
 texture_filter = 1
 layout_mode = 1
 offset_left = 43.0
-offset_top = 131.0
+offset_top = 75.0
 offset_right = 776.0
-offset_bottom = 215.0
+offset_bottom = 159.0
 theme_override_colors/font_color = Color(0, 0.8450967, 0.51867795, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
