@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://wk2ep314svox"]
+[gd_scene load_steps=21 format=3 uid="uid://wk2ep314svox"]
 
 [ext_resource type="Texture2D" uid="uid://dex4uhv41vk42" path="res://assets/sprites/evil.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://m8xbxkpioh0v" path="res://scripts/enemy.gd" id="1_md0e3"]
@@ -126,20 +126,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
 size = Vector2(12, 18)
 
-[node name="Enemy" type="Area2D" unique_id=192732018]
+[node name="Enemy" type="Area2D"]
 script = ExtResource("1_md0e3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=231676738]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_wrm80")
 animation = &"run"
 autoplay = "run"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=933912384]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_7p1mj")
 
-[node name="Timer" type="Timer" parent="." unique_id=1200735436]
+[node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
 

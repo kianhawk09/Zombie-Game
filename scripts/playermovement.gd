@@ -1,11 +1,18 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var label: Label = $"../Label"
+@onready var label_2: Label = $"../Label_2"
+@onready var label_3: Label = $"../Label_3"
+
 const JUMP = preload("uid://76frojbsm6pt")
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -650.0
 var alive = true
+
+func _ready():
+	label.visible = true
 
 func _physics_process(delta: float) -> void:
 	
@@ -45,6 +52,31 @@ func die() -> void:
 	animated_sprite_2d.animation = "die"
 	animated_sprite_2d.get_node_or_null("Hurt").play()
 
+#func _on_area_2d_body_entered(body: Node2D) -> void:
+	#if body.name == "Player":
+		#label.visible = true
 
-func _on_tip_area_1_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		label.visible = false
+
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		label_2.visible = true
+
+
+func _on_area_2d_2_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		label_2.visible = false
+
+
+func _on_area_2d_3_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		label_3.visible = true
+
+
+func _on_area_2d_3_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		label_3.visible = false

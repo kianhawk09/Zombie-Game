@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 func _setup_level() -> void:
 	# Connect enemies
-	var enemies = $LevelRoot.get_node_or_null("Enemies")
+	var enemies = $tutorial_scene.get_node_or_null("Enemies")
 	if enemies:
 		for enemy in enemies.get_children():
 			enemy.player_died.connect(_on_player_died)

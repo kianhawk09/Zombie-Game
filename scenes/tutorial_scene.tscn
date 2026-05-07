@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://br8qkebkr3ad0"]
+[gd_scene load_steps=8 format=4 uid="uid://br8qkebkr3ad0"]
 
 [ext_resource type="Texture2D" uid="uid://ck46thv00qaff" path="res://assets/sprites/world_tileset.png" id="1_tr4y6"]
 [ext_resource type="PackedScene" uid="uid://0pp06sx5u4rc" path="res://scenes/player.tscn" id="2_jelwi"]
@@ -150,6 +150,9 @@ physics_layer_0/collision_layer = 1
 physics_layer_1/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jelwi")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jelwi"]
+size = Vector2(427, 250)
+
 [node name="tutorial_scene" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -167,3 +170,66 @@ tile_set = SubResource("TileSet_urufc")
 
 [node name="Player" parent="." instance=ExtResource("2_jelwi")]
 position = Vector2(698, 540)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(865, 339)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(203.5, 115)
+shape = SubResource("RectangleShape2D_jelwi")
+
+[node name="Area2D_2" type="Area2D" parent="."]
+position = Vector2(1980, 339)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_2"]
+position = Vector2(118.5, 115)
+shape = SubResource("RectangleShape2D_jelwi")
+
+[node name="Area2D_3" type="Area2D" parent="."]
+position = Vector2(2996, 240)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_3"]
+position = Vector2(118.5, 115)
+shape = SubResource("RectangleShape2D_jelwi")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 725.0
+offset_top = 124.0
+offset_right = 1288.0
+offset_bottom = 250.0
+theme_override_font_sizes/font_size = 36
+text = "Use D and A to Walk Right and Left"
+
+[node name="Label_2" type="Label" parent="."]
+visible = false
+offset_left = 1669.0
+offset_top = 124.0
+offset_right = 2232.0
+offset_bottom = 250.0
+theme_override_font_sizes/font_size = 36
+text = "Use W, SPACE or Up Arrow to Jump"
+
+[node name="Label_3" type="Label" parent="."]
+visible = false
+offset_left = 2721.0
+offset_top = 124.0
+offset_right = 3519.0
+offset_bottom = 250.0
+theme_override_font_sizes/font_size = 36
+text = "Jump on top of the zombies to eliminate them"
+
+[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Area2D_2" to="Player" method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="Area2D_2" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D_2" to="Player" method="_on_area_2d_2_body_exited"]
+[connection signal="body_exited" from="Area2D_2" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Area2D_3" to="Player" method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="Area2D_3" to="Player" method="_on_area_2d_3_body_entered"]
+[connection signal="body_entered" from="Area2D_3" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D_3" to="Player" method="_on_area_2d_2_body_exited"]
+[connection signal="body_exited" from="Area2D_3" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="Area2D_3" to="Player" method="_on_area_2d_3_body_exited"]
