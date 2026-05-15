@@ -1,6 +1,6 @@
-extends Node2D
+extends Area2D
 
-@onready var tip: Area2D = $".."
+@onready var collision_zone: Area2D = $"."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,9 +11,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-func _on_tip_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		print("Entered tip area")
-		
-		
+		print("is player " + str(body.wall))
+		if body.wall == true:
+			collision_zone.queue_free()

@@ -10,10 +10,12 @@ const JUMP = preload("uid://76frojbsm6pt")
 const SPEED = 300.0
 const JUMP_VELOCITY = -650.0
 var alive = true
+var killable = true
+var wall = false
 
 func _ready():
 	label.visible = true
-
+	
 func _physics_process(delta: float) -> void:
 	
 	if alive == true:
@@ -52,11 +54,6 @@ func die() -> void:
 	animated_sprite_2d.animation = "die"
 	animated_sprite_2d.get_node_or_null("Hurt").play()
 
-#func _on_area_2d_body_entered(body: Node2D) -> void:
-	#if body.name == "Player":
-		#label.visible = true
-
-
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		label.visible = false
@@ -80,3 +77,10 @@ func _on_area_2d_3_body_entered(body: Node2D) -> void:
 func _on_area_2d_3_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		label_3.visible = false
+	
+
+func _on_area_2d_4_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		print("set wall to true")
+		body.wall = true
+		get_tree().change_scene_to_file.bind("res://scenes/loading_screen.tscn").call_deferred()

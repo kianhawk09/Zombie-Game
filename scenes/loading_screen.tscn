@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwi25nncya5oj"]
+
+[ext_resource type="Texture2D" uid="uid://demgyfj718boh" path="res://assets/sprites/bg1.png" id="1_hprjd"]
+[ext_resource type="Script" uid="uid://cn8ev7r86qir1" path="res://scripts/loading_screen.gd" id="1_ku3bi"]
+[ext_resource type="FontFile" uid="uid://msbittob3x64" path="res://assets/fonts/vhs-gothic.ttf" id="2_ku3bi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5phy8"]
+texture = ExtResource("1_hprjd")
+modulate_color = Color(0.14044744, 0.14044744, 0.14044744, 1)
+
+[node name="Loading Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ku3bi")
+
+[node name="Panel" type="Panel" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5phy8")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -61.0
+offset_right = 304.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ku3bi")
+theme_override_font_sizes/font_size = 81
+text = "Loading..."
