@@ -38,7 +38,7 @@ func _on_exit_body_entered(body : Node2D) -> void:
 	if body.name == "Player":
 		level += 1
 		body.can_move = false
-		_load_level(level)
+		call_deferred("_load_level", level)
 
 func _on_player_died(body: CharacterBody2D):
 	print(body.name + " died")

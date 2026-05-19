@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://0pp06sx5u4rc"]
+[gd_scene format=3 uid="uid://0pp06sx5u4rc"]
 
 [ext_resource type="Texture2D" uid="uid://btkaxqlxlt1ut" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dd2wget8xvlac" path="res://scripts/playermovement.gd" id="1_g2els"]
@@ -103,29 +103,29 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(16, 31)
+size = Vector2(13, 26)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=987649223]
 scale = Vector2(3, 3)
 script = ExtResource("1_g2els")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=483337648]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_a38lo")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Jump" type="AudioStreamPlayer" parent="AnimatedSprite2D"]
+[node name="Jump" type="AudioStreamPlayer" parent="AnimatedSprite2D" unique_id=8173767]
 stream = ExtResource("3_qhqgy")
 volume_db = -22.3
 
-[node name="Hurt" type="AudioStreamPlayer" parent="AnimatedSprite2D"]
+[node name="Hurt" type="AudioStreamPlayer" parent="AnimatedSprite2D" unique_id=907427667]
 stream = ExtResource("4_dqkch")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0.49999937)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2025306186]
+position = Vector2(2.5, 3)
 shape = SubResource("RectangleShape2D_g2els")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=806641182]
 offset = Vector2(0, -100)
 position_smoothing_enabled = true

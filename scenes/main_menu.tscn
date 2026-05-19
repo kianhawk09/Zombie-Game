@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmarpdatiwhv4"]
+[gd_scene format=3 uid="uid://dmarpdatiwhv4"]
 
 [ext_resource type="Script" uid="uid://ly2m4its6mls" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://demgyfj718boh" path="res://assets/sprites/bg1.png" id="2_bqqt6"]
@@ -21,7 +21,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="Main Menu" type="Control"]
+[node name="Main Menu" type="Control" unique_id=1752857175]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,7 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bqqt6")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=36357090]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -40,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1718995087]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -52,7 +52,7 @@ offset_bottom = 65.0
 grow_vertical = 2
 theme_override_constants/separation = 59
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1432788255]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.10747949, 0.10747983, 0.107479595, 1)
@@ -61,7 +61,7 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 text = "Start Game"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1075525677]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.09239689, 0.09239713, 0.09239692, 1)
@@ -71,7 +71,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 text = "Quit
 "
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=700347551]
 texture_filter = 1
 layout_mode = 1
 offset_left = 43.0

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dv2oiwlks3fjn"]
+
+[ext_resource type="Texture2D" uid="uid://demgyfj718boh" path="res://assets/sprites/bg1.png" id="1_f0ip2"]
+[ext_resource type="FontFile" uid="uid://msbittob3x64" path="res://assets/fonts/vhs-gothic.ttf" id="2_yesqi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yesqi"]
+texture = ExtResource("1_f0ip2")
+modulate_color = Color(0.15127608, 0.15127608, 0.15127608, 1)
+
+[node name="LevelRoot" type="Control" unique_id=576824937]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="." unique_id=730849868]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_yesqi")
+
+[node name="Label" type="Label" parent="Panel" unique_id=2049372013]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -48.0
+offset_right = 574.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_yesqi")
+theme_override_font_sizes/font_size = 52
+text = "To be continued..."
+horizontal_alignment = 1

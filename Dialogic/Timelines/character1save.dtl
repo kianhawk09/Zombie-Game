@@ -1,0 +1,10 @@
+join character1 1
+Hey! Over here!
+I'm trapped in this cave!
+[signal arg="view_npc"]
+Can you save me? I will grant you a key to leave if you do!
+- Yes
+	Thank you! I have been trapped in here since yesterday!
+	[signal arg="exit_scene"]
+- No
+	Fine.

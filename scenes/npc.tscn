@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://b3n5ur6c6beyc"]
+
+[ext_resource type="Script" uid="uid://dd2wget8xvlac" path="res://scripts/playermovement.gd" id="1_tl2vt"]
+[ext_resource type="Texture2D" uid="uid://btkaxqlxlt1ut" path="res://assets/sprites/knight.png" id="2_hwkja"]
+[ext_resource type="Texture2D" uid="uid://cjwcp86dryue" path="res://assets/sprites/Spritesheet.png" id="3_0tygy"]
+[ext_resource type="Texture2D" uid="uid://drt4qb0uqjhwo" path="res://assets/sprites/run.png" id="4_sptji"]
+[ext_resource type="AudioStream" uid="uid://76frojbsm6pt" path="res://assets/sounds/jump.wav" id="5_v4e37"]
+[ext_resource type="AudioStream" uid="uid://cbogku40cleky" path="res://assets/sounds/hurt.wav" id="6_1h837"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
+atlas = ExtResource("2_hwkja")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
+atlas = ExtResource("2_hwkja")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
+atlas = ExtResource("2_hwkja")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
+atlas = ExtResource("2_hwkja")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("3_0tygy")
+region = Rect2(0, 0, 28, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("4_sptji")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("4_sptji")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("4_sptji")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("4_sptji")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("4_sptji")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("4_sptji")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a38lo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a38lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ni07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l71n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke2ow")
+}],
+"loop": false,
+"name": &"die",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}],
+"loop": true,
+"name": &"run",
+"speed": 11.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tl2vt"]
+size = Vector2(407.6667, 169.83334)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwkja"]
+size = Vector2(16, 31)
+
+[node name="NPC" type="CharacterBody2D" unique_id=2124355370]
+scale = Vector2(3, 3)
+script = ExtResource("1_tl2vt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=589482605]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_a38lo")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Jump" type="AudioStreamPlayer" parent="AnimatedSprite2D" unique_id=946823882]
+stream = ExtResource("5_v4e37")
+volume_db = -22.3
+
+[node name="Hurt" type="AudioStreamPlayer" parent="AnimatedSprite2D" unique_id=2084712643]
+stream = ExtResource("6_1h837")
+
+[node name="chat_detection" type="Area2D" parent="." unique_id=2001288900]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection" unique_id=884264848]
+position = Vector2(-192.83334, -74.41667)
+shape = SubResource("RectangleShape2D_tl2vt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1973949756]
+position = Vector2(1.0000002, 0.5)
+shape = SubResource("RectangleShape2D_hwkja")
+
+[connection signal="body_entered" from="chat_detection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="chat_detection" to="." method="_on_chat_detection_body_exited"]
