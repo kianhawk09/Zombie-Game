@@ -28,6 +28,9 @@ func _ready():
 	
 func _physics_process(delta: float) -> void:
 	
+	if Input.is_action_just_pressed("Escape"):
+		get_tree().paused = true
+	
 	if player_in_area == true:
 		if debounce == false:
 			debounce = true

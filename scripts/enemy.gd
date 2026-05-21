@@ -12,7 +12,6 @@ var enemy_alive = true
 func _ready() -> void:
 	animated_sprite_2d.flip_h = true
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if enemy_alive:

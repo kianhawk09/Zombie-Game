@@ -1,27 +1,35 @@
-[gd_scene format=3 uid="uid://0pp06sx5u4rc"]
+[gd_scene load_steps=22 format=3 uid="uid://0pp06sx5u4rc"]
 
-[ext_resource type="Texture2D" uid="uid://btkaxqlxlt1ut" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dd2wget8xvlac" path="res://scripts/playermovement.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://b64vv7r57tutl" path="res://assets/sprites/run_and_hit.png" id="2_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://76frojbsm6pt" path="res://assets/sounds/jump.wav" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://cjwcp86dryue" path="res://assets/sprites/Spritesheet.png" id="3_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://cbogku40cleky" path="res://assets/sounds/hurt.wav" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://drt4qb0uqjhwo" path="res://assets/sprites/run.png" id="4_fjrip"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
-atlas = ExtResource("1_3vyb7")
-region = Rect2(0, 224, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(0, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
-atlas = ExtResource("1_3vyb7")
-region = Rect2(32, 224, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(32, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
-atlas = ExtResource("1_3vyb7")
-region = Rect2(64, 224, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(64, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
-atlas = ExtResource("1_3vyb7")
-region = Rect2(96, 224, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(160, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("3_tuyoq")
@@ -55,20 +63,29 @@ region = Rect2(160, 32, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a38lo")
+"texture": SubResource("AtlasTexture_fjrip")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4ni07")
+"texture": SubResource("AtlasTexture_oprun")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l71n6")
+"texture": SubResource("AtlasTexture_a8ls1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ke2ow")
+"texture": SubResource("AtlasTexture_qfm1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fulsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r5pv")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": false,
 "name": &"die",
-"speed": 12.0
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -105,27 +122,27 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(13, 26)
 
-[node name="Player" type="CharacterBody2D" unique_id=987649223]
+[node name="Player" type="CharacterBody2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_g2els")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=483337648]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_a38lo")
-animation = &"idle"
+animation = &"die"
 autoplay = "idle"
 
-[node name="Jump" type="AudioStreamPlayer" parent="AnimatedSprite2D" unique_id=8173767]
+[node name="Jump" type="AudioStreamPlayer" parent="AnimatedSprite2D"]
 stream = ExtResource("3_qhqgy")
 volume_db = -22.3
 
-[node name="Hurt" type="AudioStreamPlayer" parent="AnimatedSprite2D" unique_id=907427667]
+[node name="Hurt" type="AudioStreamPlayer" parent="AnimatedSprite2D"]
 stream = ExtResource("4_dqkch")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2025306186]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, 3)
 shape = SubResource("RectangleShape2D_g2els")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=806641182]
+[node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -100)
 position_smoothing_enabled = true
