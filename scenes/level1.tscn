@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=4 uid="uid://br8qkebkr3ad0"]
+[gd_scene load_steps=18 format=4 uid="uid://br8qkebkr3ad0"]
 
 [ext_resource type="Texture2D" uid="uid://ck46thv00qaff" path="res://assets/sprites/world_tileset.png" id="1_tr4y6"]
 [ext_resource type="PackedScene" uid="uid://0pp06sx5u4rc" path="res://scenes/player.tscn" id="2_jelwi"]
 [ext_resource type="Texture2D" uid="uid://coylt5mg6cmpr" path="res://assets/FREE_Fantasy Forest/Tiles/Tileset Outside.png" id="2_ru4tf"]
 [ext_resource type="Texture2D" uid="uid://bc8w863bes7bq" path="res://assets/FREE_Fantasy Forest/Tiles/Trees.png" id="3_6sh32"]
 [ext_resource type="PackedScene" uid="uid://wk2ep314svox" path="res://scenes/enemy.tscn" id="3_urufc"]
+[ext_resource type="StyleBox" uid="uid://niw6irw0q88t" path="res://assets/styles/tutorial_text.tres" id="5_u3awl"]
 [ext_resource type="Texture2D" uid="uid://2tdx5lgsx2n" path="res://assets/_PNG/background1.png" id="6_conm7"]
 [ext_resource type="Texture2D" uid="uid://c1gc8h01sqnrk" path="res://assets/_PNG/background2.png" id="7_d3jkd"]
 [ext_resource type="Texture2D" uid="uid://4tg2rpulpx68" path="res://assets/_PNG/background3.png" id="8_u3awl"]
@@ -542,6 +543,9 @@ sources/3 = SubResource("TileSetAtlasSource_bbk5w")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jelwi"]
 size = Vector2(427, 250)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3jkd"]
+size = Vector2(714, 227)
+
 [node name="LevelRoot" type="Node2D"]
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
@@ -586,30 +590,38 @@ position = Vector2(118.5, 115)
 shape = SubResource("RectangleShape2D_jelwi")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 725.0
+offset_left = 720.0
 offset_top = 124.0
-offset_right = 1288.0
-offset_bottom = 250.0
+offset_right = 1333.0
+offset_bottom = 188.0
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("5_u3awl")
 text = "Use D and A to Walk Right and Left"
+vertical_alignment = 1
 
 [node name="Label_2" type="Label" parent="."]
 visible = false
-offset_left = 1669.0
+offset_left = 1662.0
 offset_top = 124.0
-offset_right = 2232.0
-offset_bottom = 250.0
+offset_right = 2280.0
+offset_bottom = 184.0
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("5_u3awl")
 text = "Use W, SPACE or Up Arrow to Jump"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label_3" type="Label" parent="."]
 visible = false
-offset_left = 2721.0
+offset_left = 2710.0
 offset_top = 124.0
-offset_right = 3519.0
-offset_bottom = 250.0
+offset_right = 3530.0
+offset_bottom = 189.0
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("5_u3awl")
 text = "Jump on top of the zombies to eliminate them"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -669,6 +681,13 @@ offset = Vector2(950, 0)
 
 [node name="PauseMenu" parent="." instance=ExtResource("10_d3jkd")]
 
+[node name="Area2D5" type="Area2D" parent="."]
+position = Vector2(-185, 589)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+position = Vector2(354, 108)
+shape = SubResource("RectangleShape2D_d3jkd")
+
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Player" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Area2D_2" to="Player" method="_on_area_2d_body_entered"]
@@ -689,3 +708,4 @@ offset = Vector2(950, 0)
 [connection signal="body_exited" from="Area2D_4" to="Player" method="_on_area_2d_3_body_exited"]
 [connection signal="body_exited" from="Area2D_4" to="Player" method="_on_area_2d_2_body_exited"]
 [connection signal="body_exited" from="Area2D_4" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Area2D5" to="Player" method="_on_area_2d_blaaa_body_entered"]

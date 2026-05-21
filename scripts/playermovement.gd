@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var label_2: Label = $"../Label_2"
 @onready var label_3: Label = $"../Label_3"
 
+@onready var key: Sprite2D = $"../Key"
+
 @export var area_pcam: PhantomCamera2D
 @onready var npc: CharacterBody2D = $"../NPC"
 
@@ -86,8 +88,12 @@ func DialogicSignal(arg: String):
 		is_chatting = false
 		is_roaming = true
 	elif arg == "exit_scene":
+		
+		key.visible = true
+		
 		await get_tree().create_timer(5).timeout
 		npc.queue_free()
+		key.visible = false
 
 func die() -> void:
 	alive = false
@@ -134,5 +140,10 @@ func _on_chat_detection_body_exited(body: Node2D) -> void:
 		player_in_area = false
 
 
-func _on_area_2d_5_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+func _on_area_2d_blaaa_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		alive = false
+		animated_sprite_2d.animation = "die"
+		animated_sprite_2d.get_node_or_null("Hurt").play()
+		await get_tree().create_timer(2).timeout
+		get_tree().quit()

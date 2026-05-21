@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://3nwr8sot7sjm"]
+[gd_scene load_steps=23 format=4 uid="uid://3nwr8sot7sjm"]
 
 [ext_resource type="Texture2D" uid="uid://ck46thv00qaff" path="res://assets/sprites/world_tileset.png" id="2_02v7m"]
 [ext_resource type="Texture2D" uid="uid://coylt5mg6cmpr" path="res://assets/FREE_Fantasy Forest/Tiles/Tileset Outside.png" id="2_hrcei"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://c1gc8h01sqnrk" path="res://assets/_PNG/background2.png" id="10_56gwk"]
 [ext_resource type="Texture2D" uid="uid://4tg2rpulpx68" path="res://assets/_PNG/background3.png" id="11_ve5ok"]
 [ext_resource type="Texture2D" uid="uid://dkf513yq6ugqh" path="res://assets/_PNG/background4.png" id="12_cleqw"]
+[ext_resource type="PackedScene" uid="uid://brlnwiic0n25s" path="res://scenes/pause_menu.tscn" id="13_56gwk"]
+[ext_resource type="Texture2D" uid="uid://dp0d7c10u8jg5" path="res://assets/sprites/Key.png" id="14_ve5ok"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mejfh"]
 texture = ExtResource("2_02v7m")
@@ -717,5 +719,14 @@ offset_bottom = -89.0
 theme_override_font_sizes/font_size = 61
 text = "Level 2"
 horizontal_alignment = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("13_56gwk")]
+
+[node name="Key" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(1267, 463)
+scale = Vector2(4, 4)
+texture = ExtResource("14_ve5ok")
 
 [connection signal="body_entered" from="Area2D_4" to="Player" method="_on_area_2d_5_body_entered"]
